@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { agric_farmEntity } from './Entities/agric_farm.entity';
 
 
+
 @Injectable()
 export class AgricFarmService {
     updateAllById: any;  
@@ -38,11 +39,11 @@ async DeleteById(id){
     const deleteId = await this.agric_farmRepo.findOneBy({id});
     if(!deleteId){
         throw new HttpException(`sorry no such id ${id}found`, 404)
-        return  this.agric_farmRepo.delete(id) 
+    }
+        await this.agric_farmRepo.delete(id) 
         return{
             statusCode: 200,
             message: `id ${id} successfully deleted`,
         }
-    }
 }
 }

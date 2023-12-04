@@ -5,7 +5,7 @@ import { agric_farmDto } from 'src/DTO/agric_farm.dto';
 
 @Controller('agricfarm')
 export class AgricFarmController {
-    agric_farmRepo: any;
+   
     constructor(private proService:AgricFarmService){}
 
     @Post()

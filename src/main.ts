@@ -7,6 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const port = process.env.PROJECT_PORT;
   app.useGlobalPipes(new ValidationPipe());
+  app.setGlobalPrefix('api/v1')
   await app.listen(port, ()=> console.log(`PROJECT running on port: ${port} `));
   // to vary the port number and confirm
 }
